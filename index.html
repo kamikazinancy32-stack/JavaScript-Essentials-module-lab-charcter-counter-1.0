@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Character Counter</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./javascript.js" defer></script>
+</head>
+
+<body>
+  <header class="header">
+    <a href="#" class="logo">
+      <img src="./images/logo.png" alt="">
+      <span>Character Counter</span>
+    </a>
+
+    <button class="theme-toggle" type="button" aria-label="Theme toggle">
+      <img src="./images/summer.png" alt="">
+    </button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Analyze your text in real-time.</h1>
+      <p>Track characters, words, sentences and letter density as you type.</p>
+    </section>
+
+    <section class="counter">
+      <div class="text-input">
+        <label for="text-input">Your text</label>
+        <textarea id="text-input" placeholder="Start typing here..."></textarea>
+      </div>
+
+      <div class="options">
+        <label class="checkbox-option">
+          <input type="checkbox" id="exclude-spaces">
+          <span>Exclude spaces</span>
+        </label>
+
+        <label class="limit-option" for="character-limit">
+          Character limit
+          <input
+            type="number"
+            id="character-limit"
+            placeholder="e.g. 500"
+            min="1"
+          >
+        </label>
+      </div>
+
+      <section class="statistics">
+        <article class="stat-card characters-card">
+          <span class="stat-number">00</span>
+          <p>Characters</p>
+        </article>
+
+        <article class="stat-card words-card">
+          <span class="stat-number">00</span>
+          <p>Word count</p>
+        </article>
+
+        <article class="stat-card sentences-card">
+          <span class="stat-number">00</span>
+          <p>Sentence count</p>
+        </article>
+      </section>
+
+      <section class="density">
+        <div class="density-header">
+          <h2>Letter density</h2>
+          <button type="button" id="expand-density">See more</button>
+        </div>
+
+        <div class="density-list">
+          <div class="density-row">
+            <span class="density-letter">E</span>
+            <div class="density-bar"><span style="width: 80%"></span></div>
+            <span class="density-count">8</span>
+            <span class="density-percent">32%</span>
+          </div>
+
+          <div class="density-row">
+            <span class="density-letter">A</span>
+            <div class="density-bar"><span style="width: 60%"></span></div>
+            <span class="density-count">6</span>
+            <span class="density-percent">24%</span>
+          </div>
+
+          <div class="density-row">
+            <span class="density-letter">T</span>
+            <div class="density-bar"><span style="width: 40%"></span></div>
+            <span class="density-count">4</span>
+            <span class="density-percent">16%</span>
+          </div>
+
+          <div class="density-row">
+            <span class="density-letter">O</span>
+            <div class="density-bar"><span style="width: 30%"></span></div>
+            <span class="density-count">3</span>
+            <span class="density-percent">12%</span>
+          </div>
+
+          <div class="density-row">
+            <span class="density-letter">R</span>
+            <div class="density-bar"><span style="width: 20%"></span></div>
+            <span class="density-count">2</span>
+            <span class="density-percent">8%</span>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
