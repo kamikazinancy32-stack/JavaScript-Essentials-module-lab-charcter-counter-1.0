@@ -61,12 +61,21 @@ function updateLimitWarning(characters) {
   const limit = Number(limitInput.value);
   const isOverLimit = limitToggle.checked && limit > 0 && characters > limit;
 
+  limitWarningText.textContent = isOverLimit
+    ? `Limit reached! Your text exceeds ${limit} characters.`
+    : "";
   limitWarning.hidden = !isOverLimit;
   textInput.setAttribute("aria-invalid", isOverLimit);
+}
 
-  if (isOverLimit) {
-    limitWarningText.textContent = `Limit reached! Your text exceeds ${limit} characters.`;
+function toggleLimitInput() {
+  limitInput.disabled = !limitToggle.checked;
+
+  if (limitToggle.checked) {
+    limitInput.focus();
   }
+
+  updateStats();
 }
 
 function getLetterCounts(text) {
@@ -137,9 +146,11 @@ function toggleTheme() {
   themeToggle.setAttribute("aria-label", isLight ? "Switch to dark theme" : "Switch to light theme");
 }
 
+limitInput.disabled = !limitToggle.checked;
+
 textInput.addEventListener("input", updateStats);
 excludeSpaces.addEventListener("change", updateStats);
-limitToggle.addEventListener("change", updateStats);
+limitToggle.addEventListener("change", toggleLimitInput);
 limitInput.addEventListener("input", updateStats);
 seeMoreButton.addEventListener("click", toggleLetters);
 themeToggle.addEventListener("click", toggleTheme);

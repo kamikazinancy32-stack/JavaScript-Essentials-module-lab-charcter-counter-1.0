@@ -14,7 +14,7 @@
 <body>
   <div class="container">
     <header class="header">
-      <a href="./" class="logo">
+      <a href="./" class="logo" aria-label="Character Counter, home">
         <img src="./images/logo.svg" alt="" width="33" height="40">
         <span>Character Counter</span>
       </a>
@@ -35,7 +35,7 @@
           aria-describedby="limit-warning"
         ></textarea>
 
-        <p class="limit-warning" id="limit-warning" role="alert" hidden>
+        <p class="limit-warning" id="limit-warning" role="alert" aria-atomic="true" hidden>
           <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
             <circle cx="7" cy="7" r="6.25" fill="none" stroke="currentColor" stroke-width="1.2" />
             <path d="M7 6.3v3.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
@@ -53,16 +53,16 @@
 
             <div class="limit-option">
               <label class="checkbox">
-                <input type="checkbox" id="limit-toggle">
+                <input type="checkbox" id="limit-toggle" aria-controls="character-limit">
                 Set Character Limit
               </label>
 
               <label for="character-limit" class="visually-hidden">Character limit</label>
-              <input type="number" id="character-limit" class="limit-input" min="1" inputmode="numeric">
+              <input type="number" id="character-limit" class="limit-input" min="1" inputmode="numeric" disabled>
             </div>
           </div>
 
-          <p class="reading-time">
+          <p class="reading-time" aria-live="polite">
             Approx. reading time: <span id="reading-time">0 minute</span>
           </p>
         </div>

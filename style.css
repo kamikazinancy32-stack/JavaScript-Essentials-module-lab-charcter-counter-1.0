@@ -73,6 +73,39 @@ button {
   cursor: pointer;
 }
 
+/* ---------- Cursors ---------- */
+
+a[href],
+button,
+label,
+select,
+summary,
+[role="button"],
+input[type="checkbox"],
+input[type="radio"] {
+  cursor: pointer;
+}
+
+textarea,
+input[type="text"],
+input[type="number"],
+input[type="search"],
+input[type="email"] {
+  cursor: text;
+}
+
+button:disabled,
+input:disabled,
+textarea:disabled,
+[aria-disabled="true"],
+label:has(:disabled) {
+  cursor: not-allowed;
+}
+
+[hidden] {
+  display: none !important;
+}
+
 ul {
   list-style: none;
 }
@@ -86,6 +119,9 @@ ul {
   position: absolute;
   width: 1px;
   height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
   overflow: hidden;
   clip: rect(0 0 0 0);
   white-space: nowrap;
@@ -170,7 +206,7 @@ textarea::placeholder {
 }
 
 textarea:focus {
-  outline: none;
+  outline: 2px solid transparent; /* stays visible in Windows high-contrast mode */
   border-color: var(--purple-500);
   box-shadow: 0 0 10px var(--purple-500);
 }
@@ -245,6 +281,10 @@ textarea[aria-invalid="true"] {
   background: transparent;
   text-align: center;
   appearance: textfield;
+}
+
+.limit-input:disabled {
+  opacity: 0.5;
 }
 
 .limit-input::-webkit-inner-spin-button,
@@ -366,8 +406,39 @@ textarea[aria-invalid="true"] {
   line-height: 1.4;
 }
 
+.see-more svg {
+  transition: transform 0.2s ease;
+}
+
 .see-more[aria-expanded="true"] svg {
   transform: rotate(180deg);
+}
+
+.theme-toggle:hover,
+.see-more:hover {
+  opacity: 0.8;
+}
+
+.logo:hover span {
+  text-decoration: underline;
+}
+
+/* ---------- Accessibility preferences ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+@media (forced-colors: active) {
+  .checkbox input:checked {
+    background: Highlight;
+    forced-color-adjust: none;
+  }
 }
 
 /* ---------- Mobile ---------- */
